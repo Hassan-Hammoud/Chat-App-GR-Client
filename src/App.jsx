@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-
 const App = () => {
   return (
     <div className='bg-[url("./src/assets/bgImage.svg")] bg-contain '>
