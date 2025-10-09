@@ -1,5 +1,6 @@
 /** @format */
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../../context/AuthContext';
 import assets from './../../assets/assets';
 
 const LoginPage = () => {
@@ -9,6 +10,21 @@ const LoginPage = () => {
   const [password, SetPassword] = useState('');
   const [bio, SetBio] = useState('');
   const [isDataSubmitted, SetIsDataSubmitted] = useState(false);
+  const { login } = useContext(AuthContext);
+
+  const onSubmitHandler = event => {
+    event.preventDefault();
+    if (currState === 'Sign up' && !isDataSubmitted) {
+      SetIsDataSubmitted(true);
+      return;
+    }
+    login(currState === 'Sign up' ? 'signup' : 'login', {
+      fullName,
+      email,
+      password,
+      bio,
+    });
+  };
 
   return (
     <div className='min-h-screen bg-cover bg-center flex items-center justify-center gap-8 sm:justify-evenly max-sm:flex-col backdrop-blur-2xl'>
@@ -19,7 +35,10 @@ const LoginPage = () => {
         alt='Big logo image'
       />
       {/* ******** RIGHT SIDE ******** */}
-      <form className='border-2 bg-white/8 text-white border-gray-500 p-6 flex flex-col gap-6 rounded-lg shadow-lg'>
+      <form
+        onSubmit={onSubmitHandler}
+        className='border-2 bg-white/8 text-white border-gray-500 p-6 flex flex-col gap-6 rounded-lg shadow-lg'
+      >
         <h2 className='font-medium text-2xl flex justify-between items-center'>
           {currState}
           <img
@@ -30,7 +49,7 @@ const LoginPage = () => {
         </h2>
         {currState === 'Sign up' && !isDataSubmitted && (
           <input
-            onChange={(e) => SetFullName(e.target.value)}
+            onChange={e => SetFullName(e.target.value)}
             value={fullName}
             type='text'
             className='p-2 border border-gray-500 rounded-md focus:outline-none'
@@ -42,7 +61,7 @@ const LoginPage = () => {
         {!isDataSubmitted && (
           <>
             <input
-              onChange={(e) => SetEmail(e.target.value)}
+              onChange={e => SetEmail(e.target.value)}
               value={email}
               type='email'
               placeholder='Email Address'
@@ -50,7 +69,7 @@ const LoginPage = () => {
               className='p-2 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500'
             />
             <input
-              onChange={(e) => SetPassword(e.target.value)}
+              onChange={e => SetPassword(e.target.value)}
               value={password}
               type='password'
               placeholder='Password'
@@ -62,7 +81,7 @@ const LoginPage = () => {
 
         {currState === 'Sign up' && isDataSubmitted && (
           <textarea
-            onChange={(e) => SetBio(e.target.value)}
+            onChange={e => SetBio(e.target.value)}
             value={bio}
             rows={4}
             className='p-2 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500'
