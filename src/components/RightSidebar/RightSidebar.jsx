@@ -7,7 +7,7 @@ import assets from '../../assets/assets';
 
 const RightSidebar = () => {
   const { selectedUser, messages } = useContext(ChatContext);
-  console.log('🚀 ~ RightSidebar ~ messages:', messages);
+  // console.log('🚀 ~ RightSidebar ~ messages:', messages);
   const { logout, onlineUsers } = useContext(AuthContext);
   const [msgImages, setMsgImages] = useState([]);
 

@@ -41,11 +41,11 @@ const LoginPage = () => {
       >
         <h2 className='font-medium text-2xl flex justify-between items-center'>
           {currState}
-          <img
+          {/* <img
             className='w-5 cursor-pointer'
             src={assets.arrow_icon}
             alt='Arrow Icon '
-          />
+          /> */}
         </h2>
         {currState === 'Sign up' && !isDataSubmitted && (
           <input

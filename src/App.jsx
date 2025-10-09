@@ -10,7 +10,7 @@ const App = () => {
   const { authUser } = useContext(AuthContext);
 
   return (
-    <div className='bg-[url("./src/assets/bgImage.svg")] bg-contain'>
+    <div className='bg-[url("https://res.cloudinary.com/dmmtbk5lg/image/upload/v1760028436/bgImage_xgevok.svg")] bg-contain'>
       <Toaster />
       <Routes>
         <Route
