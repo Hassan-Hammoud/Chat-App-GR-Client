@@ -38,7 +38,8 @@ export const AuthProvider = ({ children }) => {
       if (data.success) {
         setAuthUser(data.userData);
         connectSocket(data.userData);
-        axios.defaults.headers.common['token'] = data.token;
+        // axios.defaults.headers.common['token'] = data.token;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
         // axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
         setToken(data.token);
         localStorage.setItem('token', data.token);
@@ -89,7 +90,7 @@ export const AuthProvider = ({ children }) => {
         userId: userData._id,
       },
     });
-    // newSocket.connect();  // ! add it if does not work when you get it an error : io is not defined
+    // newSocket.connect();
     setSocket(newSocket);
 
     newSocket.on('getOnlineUsers', userIds => {
@@ -98,12 +99,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    if (!token) return;
     if (token) {
       //   axios.defaults.headers.common['token'] = token;
+      // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     }
     checkAuth();
-  }, []);
+  }, [token]);
   const value = {
     axios,
     authUser,
