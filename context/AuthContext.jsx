@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+// import io from 'socket.io-client';
 import { io } from 'socket.io-client';
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -88,7 +89,7 @@ export const AuthProvider = ({ children }) => {
         userId: userData._id,
       },
     });
-    newSocket.connect();
+    // newSocket.connect();  // ! add it if does not work when you get it an error : io is not defined
     setSocket(newSocket);
 
     newSocket.on('getOnlineUsers', userIds => {
