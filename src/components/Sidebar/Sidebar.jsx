@@ -13,7 +13,7 @@ const Sidebar = () => {
     setUnseenMessages,
   } = useContext(ChatContext);
   const { logout, onlineUsers } = useContext(AuthContext);
-  console.log('🚀 ~ Sidebar ~ onlineUsers:', onlineUsers);
+  // console.log('🚀 ~ Sidebar ~ onlineUsers:', onlineUsers);
   const [input, setInput] = useState(false);
   const navigate = useNavigate();
 
