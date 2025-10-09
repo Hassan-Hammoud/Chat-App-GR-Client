@@ -28,7 +28,7 @@ const RightSidebar = () => {
             alt='User Image'
             className='w-20 aspect-[1/1] rounded-full'
           />
-          <h1 className='px-10 text-xl font-medium mx-auto flex items-center gap-2'>
+          <h1 className='px-10 text-xl font-medium mx-auto flex items-center gap-2 text-center'>
             {onlineUsers.includes(selectedUser._id) && (
               <p className='w-2 h-2 rounded-full bg-green-500'></p>
             )}
@@ -38,7 +38,7 @@ const RightSidebar = () => {
         </div>
         <hr className='border-[#ffffff50] my-4' />
         <div className='px-5 text-xs'>
-          <p className=''>Media</p>
+          <p className='text-center mb-4 text-sm'>Media</p>
           <div className='mt-2 max-h-[200px] overflow-y-scroll grid grid-cols-2 gap-4 opacity-80'>
             {msgImages.map((url, index) => (
               <div
@@ -57,7 +57,7 @@ const RightSidebar = () => {
         </div>
         <button
           onClick={() => logout()}
-          className='absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-400 to-violet-600 text-white border-none text-sm font-light py-2 px-20 rounded-full cursor-pointer'
+          className='absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-400 to-violet-600 text-white border-none text-sm font-light py-2 px-20 rounded-full cursor-pointer md:px-10'
         >
           Logout
         </button>
