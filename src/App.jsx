@@ -1,4 +1,4 @@
-/** @format */
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { useContext } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -26,6 +26,7 @@ const App = () => {
           element={authUser ? <ProfilePage /> : <Navigate to='/login' />}
         />
       </Routes>
+      <SpeedInsights />
     </div>
   );
 };
