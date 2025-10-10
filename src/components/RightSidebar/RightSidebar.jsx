@@ -34,7 +34,7 @@ const RightSidebar = () => {
             )}
             {selectedUser.fullName}
           </h1>
-          <p className='px-10 mx-auto'>{selectedUser.bio}</p>
+          <p className='px-10 text-center mx-auto'>{selectedUser.bio}</p>
         </div>
         <hr className='border-[#ffffff50] my-4' />
         <div className='px-5 text-xs'>
@@ -47,7 +47,7 @@ const RightSidebar = () => {
                 onClick={() => window.open(url)}
               >
                 <img
-                  className='h-full rounded-md'
+                  className='w-full h-40 object-cover rounded-md'
                   src={url}
                   alt='sending image'
                 />
